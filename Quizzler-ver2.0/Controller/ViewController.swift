@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelSkor: UILabel!
     @IBOutlet weak var labelPertanyaan: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
+    @IBOutlet weak var option1Button: UIButton!
+    @IBOutlet weak var option2Button: UIButton!
+    @IBOutlet weak var option3Button: UIButton!
     
     var quizBrain = QuizBrain()
     var timer = Timer()
@@ -44,10 +45,14 @@ class ViewController: UIViewController {
     @objc func updateUI() {
         labelSkor.text = quizBrain.getScore()
         labelPertanyaan.text = quizBrain.getQuestion()
+        option1Button.setTitle(quizBrain.getAnswers()[0], for: .normal)
+        option2Button.setTitle(quizBrain.getAnswers()[1], for: .normal)
+        option3Button.setTitle(quizBrain.getAnswers()[2], for: .normal)
         progressBar.progress = quizBrain.getProgress()
         
-        trueButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        falseButton.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        option1Button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        option2Button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        option3Button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
     }
 }
 
