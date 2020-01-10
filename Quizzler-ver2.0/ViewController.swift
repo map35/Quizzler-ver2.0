@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     
-    let questionArray = [["2 + 2 = 4", "True"], ["3 * 4 = 12", "True"], ["9 / 3 = 0", "False"]]
+    let questionArray = [Question(question: "2 + 2 = 4", answer: "True"), Question(question: "3 * 4 = 12", answer: "True"), Question(question: "9 / 3 = 0", answer: "False")]
     var questionNumber = 0
     var userAnswer = ""
     var correctAnswer = ""
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
     @IBAction func answerPressed(_ sender: UIButton) {
         userAnswer = sender.currentTitle!
-        correctAnswer = questionArray[questionNumber][1]
+        correctAnswer = questionArray[questionNumber].answer
         
         if questionNumber+1 < questionArray.count {
 //            updateUI()
@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     func updateUI() {
-        labelPertanyaan.text = questionArray[questionNumber][0]
+        labelPertanyaan.text = questionArray[questionNumber].question
         
         cekAnswer()
     }
